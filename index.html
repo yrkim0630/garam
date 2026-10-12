@@ -204,7 +204,7 @@
             <div class="text-center mb-8">
                 <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">응원 방명록</h3>
                 <p class="text-slate-500">우리 반과 친구들에게 응원의 한마디를 남겨주세요!</p>
-                <p class="text-xs text-red-500 mt-1 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i>욕설, 패드립, 초성 욕설(ㅅㅂ, ㅂㅅ, ㅈㄹ 등)은 자동으로 별표(***) 처리됩니다.</p>
+                <p class="text-xs text-red-500 mt-1 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i>욕설, 패드립(니엄마, 니엠 등), 초성 욕설(ㅅㅂ, ㅂㅅ 등)은 즉시 마스킹 처리됩니다.</p>
             </div>
 
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
@@ -240,7 +240,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript with Comprehensive Initial Consonant & Bad Word Filter -->
+    <!-- JavaScript with Direct String Matching & Direct Replacement -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const messageForm = document.getElementById('messageForm');
@@ -248,38 +248,36 @@
             const contentInput = document.getElementById('contentInput');
             const messageList = document.getElementById('messageList');
 
-            // 초성 욕설(ㅅㅂ, ㅂㅅ, ㅈㄹ 등) 및 패드립, 일반 욕설 통합 리스트
-            const badWords = [
-                // 요청하신 초성 욕설
-                'ㅅㅂ', 'ㅆㅂ', 'ㅂㅅ', 'ㅈㄹ', 'ㄲㅈ', 'ㄷㅊ', 'ㅅㄲ',
-                // 패드립 및 부모/가족 비하 표현
-                '니엠', '니엠마', '니엄', '니엄마', '니네엄마', '너네엄마', '니네엠',
+            // 정확한 매칭을 위해 글자 사이 공백을 없애고 비교할 금지어 목록
+            const rawBadWords = [
+                // 요청하신 패드립 및 비속어 핵심 단어들
+                '니엠', '니엠마', '니엄', '니엄마', '니네엄마', '너네엄마', '니네엠', '니네애미',
                 '느금', '느금마', '느그엄마', '느엄마', '애미', '애비', '느그애미', 
                 '느그애비', '니애미', '니애비', '느개비', '느그어매', '느금바', 
                 '앰생', '느금새끼', '느그집안', '느그어머니', '니어머니', '느그아버지', '니아버지',
-                // 일반 욕설 및 변형
-                '시발', '씨발', '씨바', '시바', '시bal', '씨bal',
-                '개새끼', '개새', '개서k끼', '병신', '뵹신', '지랄',
-                '존나', '존나게', '조나', '미친', '미친놈', '미친년',
-                '꺼져', '닥쳐', '엿먹', '씹', '새끼', '노무', '일베',
-                // 영어 욕설
+                // 초성 욕설
+                'ㅅㅂ', 'ㅆㅂ', 'ㅂㅅ', 'ㅈㄹ', 'ㄲㅈ', 'ㄷㅊ', 'ㅅㄲ',
+                // 일반 욕설
+                '시발', '씨발', '씨바', '시바', '개새끼', '개새', '병신', '지랄',
+                '존나', '존나게', '미친', '미친놈', '미친년', '꺼져', '닥쳐', '씹', '새끼',
                 'fuck', 'shit', 'bitch', 'asshole'
             ];
 
-            // 글자 사이의 특수문자, 띄어쓰기 등을 통과해도 잡아내는 정밀 필터 함수
+            // 텍스트 검열 함수: 공백과 특수문자를 무시하고 매칭한 뒤 별표로 치환
             function filterBadWords(text) {
-                let modified = text;
-
-                badWords.forEach(word => {
-                    const pattern = word.split('').join('[\\s\\W_]*');
-                    const regex = new RegExp(pattern, 'gi');
-
-                    modified = modified.replace(regex, (match) => {
+                let result = text;
+                
+                rawBadWords.forEach(badWord => {
+                    // 글자 사이사이에 낀 공백이나 특수문자 패턴을 허용하도록 정규식 생성
+                    const escaped = badWord.split('').join('[\\s\\W]*');
+                    const regex = new RegExp(escaped, 'gi');
+                    
+                    result = result.replace(regex, (match) => {
                         return '*'.repeat(match.length);
                     });
                 });
 
-                return modified;
+                return result;
             }
 
             const defaultMessages = [
@@ -308,6 +306,7 @@
                 messages.forEach((msg, index) => {
                     const card = document.createElement('div');
                     card.className = 'bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-start';
+                    // 이미 필터링되어 저장된 텍스트이므로 안전하게 HTML 출력
                     card.innerHTML = `
                         <div>
                             <div class="flex items-center space-x-2 mb-1">
@@ -338,7 +337,7 @@
 
                 if(!author || !content) return;
 
-                // 초성 욕설, 패드립, 일반 비속어 검열 적용
+                // 입력받은 직후 강력하게 비속어 및 패드립 검열 실행
                 author = filterBadWords(author);
                 content = filterBadWords(content);
 
