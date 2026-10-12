@@ -204,7 +204,7 @@
             <div class="text-center mb-8">
                 <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">응원 방명록</h3>
                 <p class="text-slate-500">우리 반과 친구들에게 응원의 한마디를 남겨주세요!</p>
-                <p class="text-xs text-red-500 mt-1 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i>욕설, 패드립(니엄마, 니엠 등), 초성 욕설(ㅅㅂ, ㅂㅅ 등)은 즉시 마스킹 처리됩니다.</p>
+                <p class="text-xs text-red-500 mt-1 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i>욕설, 패드립, 초성 욕설 및 'ㅗ' 반복 입력은 자동으로 마스킹 처리됩니다.</p>
             </div>
 
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
@@ -240,7 +240,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript with Direct String Matching & Direct Replacement -->
+    <!-- JavaScript with 'ㅗ' and Repeated 'ㅗ' Censorship -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const messageForm = document.getElementById('messageForm');
@@ -248,9 +248,8 @@
             const contentInput = document.getElementById('contentInput');
             const messageList = document.getElementById('messageList');
 
-            // 정확한 매칭을 위해 글자 사이 공백을 없애고 비교할 금지어 목록
             const rawBadWords = [
-                // 요청하신 패드립 및 비속어 핵심 단어들
+                // 패드립 및 부모/가족 비하 표현
                 '니엠', '니엠마', '니엄', '니엄마', '니네엄마', '너네엄마', '니네엠', '니네애미',
                 '느금', '느금마', '느그엄마', '느엄마', '애미', '애비', '느그애미', 
                 '느그애비', '니애미', '니애비', '느개비', '느그어매', '느금바', 
@@ -263,12 +262,15 @@
                 'fuck', 'shit', 'bitch', 'asshole'
             ];
 
-            // 텍스트 검열 함수: 공백과 특수문자를 무시하고 매칭한 뒤 별표로 치환
+            // 비속어 및 'ㅗ' 반복 패턴 검열 함수
             function filterBadWords(text) {
                 let result = text;
                 
+                // 1. 단일 또는 반복되는 'ㅗ' 검열 (ㅗ, ㅗㅗ, ㅗㅗㅗ 등)
+                result = result.replace(/[ㅗ]+/g, (match) => '*'.repeat(match.length));
+
+                // 2. 금지어 목록 검열 (특수문자 및 공백 변형 포함)
                 rawBadWords.forEach(badWord => {
-                    // 글자 사이사이에 낀 공백이나 특수문자 패턴을 허용하도록 정규식 생성
                     const escaped = badWord.split('').join('[\\s\\W]*');
                     const regex = new RegExp(escaped, 'gi');
                     
@@ -306,7 +308,6 @@
                 messages.forEach((msg, index) => {
                     const card = document.createElement('div');
                     card.className = 'bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-start';
-                    // 이미 필터링되어 저장된 텍스트이므로 안전하게 HTML 출력
                     card.innerHTML = `
                         <div>
                             <div class="flex items-center space-x-2 mb-1">
@@ -337,7 +338,7 @@
 
                 if(!author || !content) return;
 
-                // 입력받은 직후 강력하게 비속어 및 패드립 검열 실행
+                // 입력 직후 'ㅗ' 반복 및 비속어 검열 실행
                 author = filterBadWords(author);
                 content = filterBadWords(content);
 
@@ -361,8 +362,4 @@
                 );
             }
 
-            renderMessages();
-        });
-    </script>
-</body>
-</html>
+            renderMessages
