@@ -28,7 +28,6 @@
                 </div>
             </div>
             <nav class="hidden md:flex space-x-6 font-semibold text-sm">
-                <a href="#intro" class="hover:text-indigo-200 transition">환영인사</a>
                 <a href="#schedule" class="hover:text-indigo-200 transition">전체 일정</a>
                 <a href="#zones" class="hover:text-indigo-200 transition">활동 구역</a>
                 <a href="#board" class="hover:text-indigo-200 transition">응원 방명록</a>
@@ -57,9 +56,6 @@
                 </a>
             </div>
         </div>
-        <!-- Background Bubble Effect -->
-        <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-pulse"></div>
-        <div class="absolute -top-10 -right-10 w-48 h-48 bg-violet-500 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-pulse"></div>
     </section>
 
     <!-- Main Content Container -->
@@ -73,8 +69,7 @@
             </div>
 
             <div class="space-y-4 max-w-4xl mx-auto">
-                <!-- Schedule Item 1 -->
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:shadow-md transition">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                     <div class="flex items-center space-x-4">
                         <div class="bg-indigo-50 text-indigo-600 font-bold px-4 py-3 rounded-xl text-center min-w-[120px]">
                             <span class="block text-xs text-slate-400 uppercase font-semibold">Step 1</span>
@@ -88,8 +83,7 @@
                     <span class="bg-slate-100 text-slate-600 text-xs px-3 py-1.5 rounded-lg font-semibold">운동장</span>
                 </div>
 
-                <!-- Schedule Item 2 -->
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:shadow-md transition">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                     <div class="flex items-center space-x-4">
                         <div class="bg-indigo-50 text-indigo-600 font-bold px-4 py-3 rounded-xl text-center min-w-[120px]">
                             <span class="block text-xs text-slate-400 uppercase font-semibold">Step 2</span>
@@ -103,8 +97,7 @@
                     <span class="bg-slate-100 text-slate-600 text-xs px-3 py-1.5 rounded-lg font-semibold">전체 운동장</span>
                 </div>
 
-                <!-- Schedule Item 3 -->
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:shadow-md transition border-l-4 border-l-indigo-500">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-l-4 border-l-indigo-500">
                     <div class="flex items-center space-x-4">
                         <div class="bg-indigo-50 text-indigo-600 font-bold px-4 py-3 rounded-xl text-center min-w-[120px]">
                             <span class="block text-xs text-indigo-400 uppercase font-semibold">1차 경기</span>
@@ -118,8 +111,7 @@
                     <span class="bg-indigo-100 text-indigo-700 text-xs px-3 py-1.5 rounded-lg font-semibold">각 장소별</span>
                 </div>
 
-                <!-- Schedule Item 4 -->
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:shadow-md transition">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                     <div class="flex items-center space-x-4">
                         <div class="bg-amber-50 text-amber-600 font-bold px-4 py-3 rounded-xl text-center min-w-[120px]">
                             <span class="block text-xs text-amber-400 uppercase font-semibold">Break</span>
@@ -133,8 +125,7 @@
                     <span class="bg-amber-100 text-amber-700 text-xs px-3 py-1.5 rounded-lg font-semibold">전체</span>
                 </div>
 
-                <!-- Schedule Item 5 -->
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:shadow-md transition border-l-4 border-l-violet-500">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-l-4 border-l-violet-500">
                     <div class="flex items-center space-x-4">
                         <div class="bg-violet-50 text-violet-600 font-bold px-4 py-3 rounded-xl text-center min-w-[120px]">
                             <span class="block text-xs text-violet-400 uppercase font-semibold">2차 경기</span>
@@ -158,8 +149,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Zone 1 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col hover:shadow-lg transition">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
                     <div class="bg-emerald-500 text-white p-6 text-center">
                         <div class="w-12 h-12 bg-white bg-opacity-20 rounded-xl flex items-center justify-center mx-auto mb-2 text-2xl">
                             <i class="fa-solid fa-sun"></i>
@@ -171,16 +161,11 @@
                         <ul class="space-y-2 text-sm text-slate-600">
                             <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>협동 줄다리기, 계주 등 단체 종목 진행</li>
                             <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>넓은 공간을 활용한 협동심 배양</li>
-                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>안전수칙 준수 및 페어플레이</li>
                         </ul>
-                        <div class="bg-emerald-50 p-3 rounded-xl text-xs text-emerald-800 font-medium">
-                            <i class="fa-solid fa-triangle-exclamation mr-1"></i> 야외 활동 시 모자와 수분 섭취 필수!
-                        </div>
                     </div>
                 </div>
 
-                <!-- Zone 2 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col hover:shadow-lg transition">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
                     <div class="bg-blue-500 text-white p-6 text-center">
                         <div class="w-12 h-12 bg-white bg-opacity-20 rounded-xl flex items-center justify-center mx-auto mb-2 text-2xl">
                             <i class="fa-solid fa-basketball"></i>
@@ -192,16 +177,11 @@
                         <ul class="space-y-2 text-sm text-slate-600">
                             <li><i class="fa-solid fa-check text-blue-500 mr-2"></i>클래식 및 토너먼트 피구 경기</li>
                             <li><i class="fa-solid fa-check text-blue-500 mr-2"></i>반별 대항전 형식으로 치열한 승부</li>
-                            <li><i class="fa-solid fa-check text-blue-500 mr-2"></i>실내화 착용 및 안전 구역 엄수</li>
                         </ul>
-                        <div class="bg-blue-50 p-3 rounded-xl text-xs text-blue-800 font-medium">
-                            <i class="fa-solid fa-shoe-prints mr-1"></i> 실내 체육관 전용 신발을 꼭 착용하세요.
-                        </div>
                     </div>
                 </div>
 
-                <!-- Zone 3 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col hover:shadow-lg transition">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
                     <div class="bg-purple-500 text-white p-6 text-center">
                         <div class="w-12 h-12 bg-white bg-opacity-20 rounded-xl flex items-center justify-center mx-auto mb-2 text-2xl">
                             <i class="fa-solid fa-puzzle-piece"></i>
@@ -213,11 +193,7 @@
                         <ul class="space-y-2 text-sm text-slate-600">
                             <li><i class="fa-solid fa-check text-purple-500 mr-2"></i>두뇌 및 신체 협동 미니 게임</li>
                             <li><i class="fa-solid fa-check text-purple-500 mr-2"></i>교실 속 이색 협동 챌린지 수행</li>
-                            <li><i class="fa-solid fa-check text-purple-500 mr-2"></i>친구들과 함께 푸는 재미</li>
                         </ul>
-                        <div class="bg-purple-50 p-3 rounded-xl text-xs text-purple-800 font-medium">
-                            <i class="fa-solid fa-hands-clapping mr-1"></i> 학급 친구들과의 협력이 성공의 열쇠!
-                        </div>
                     </div>
                 </div>
             </div>
@@ -228,7 +204,7 @@
             <div class="text-center mb-8">
                 <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">응원 방명록</h3>
                 <p class="text-slate-500">우리 반과 친구들에게 응원의 한마디를 남겨주세요!</p>
-                <p class="text-xs text-slate-400 mt-1"><i class="fa-solid fa-shield-halved mr-1 text-indigo-500"></i>건전한 응원 문화를 위해 비속어 및 욕설은 자동으로 검열됩니다.</p>
+                <p class="text-xs text-red-500 mt-1 font-semibold"><i class="fa-solid fa-shield-halved mr-1"></i>욕설 및 비속어 입력 시 자동으로 별표(***) 처리됩니다.</p>
             </div>
 
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
@@ -248,9 +224,7 @@
             </div>
 
             <!-- Messages List -->
-            <div id="messageList" class="space-y-4">
-                <!-- Dynamically loaded messages via JavaScript -->
-            </div>
+            <div id="messageList" class="space-y-4"></div>
         </section>
 
     </main>
@@ -262,13 +236,11 @@
                 <h4 class="text-white font-bold text-lg mb-1">한가람 체육활동 안내 사이트</h4>
                 <p class="text-xs">전교생이 함께 즐기는 안전하고 행복한 체육 한마당</p>
             </div>
-            <p class="text-xs text-slate-500">
-                &copy; 2026 Hangaram Festival. All rights reserved.
-            </p>
+            <p class="text-xs text-slate-500">&copy; 2026 Hangaram Festival. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Guestbook & Bad Word Filter -->
+    <!-- JavaScript with Enhanced Filtering -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const messageForm = document.getElementById('messageForm');
@@ -276,25 +248,32 @@
             const contentInput = document.getElementById('contentInput');
             const messageList = document.getElementById('messageList');
 
-            // 검열 대상 비속어/욕설 단어 목록 (필요에 따라 단어를 추가할 수 있습니다)
+            // 강력한 비속어 리스트 (자주 쓰는 욕설 및 파생형)
             const badWords = [
-                '시발', '씨발', '씨바', '시바', '개새끼', '개새', '병신', '지랄', '존나', '존마', 
-                '미친', '미친놈', '미친년', '떵', '바보', '멍청이', '엿먹어', '꺼져', '닥쳐', '씹',
+                '시발', '씨발', '씨바', '시바', 'ㅆㅂ', 'ㅅㅂ', '시bal', '씨bal',
+                '개새끼', '개새', '개서k끼', '병신', 'ㅂㅅ', '뵹신', '지랄', 'ㅈㄹ',
+                '존나', '존나게', '조나', '존맛탱이 아님', '미친', '미친놈', '미친년',
+                '꺼져', '닥쳐', '엿먹', '씹', '새끼', 'X새끼', '노무', '일베',
                 'fuck', 'shit', 'bitch', 'asshole'
             ];
 
-            // 비속어를 별표(***)로 치환해주는 감지 및 검열 함수
+            // 글자 사이의 특수문자나 공백을 무시하고 욕설을 잡아내기 위한 정밀 필터 함수
             function filterBadWords(text) {
-                let filteredText = text;
+                let modified = text;
+
                 badWords.forEach(word => {
-                    // 대소문자 구분을 없애기 위해 RegExp 생성
-                    const regex = new RegExp(word, 'gi');
-                    filteredText = filteredText.replace(regex, (match) => '*'.repeat(match.length));
+                    // 단어 사이에 특수문자나 공백이 섞여 있는 경우를 감지하기 위한 정규식 패턴 생성
+                    const pattern = word.split('').join('[\\s\\W_]*');
+                    const regex = new RegExp(pattern, 'gi');
+
+                    modified = modified.replace(regex, (match) => {
+                        return '*'.repeat(match.length);
+                    });
                 });
-                return filteredText;
+
+                return modified;
             }
 
-            // 기본 초기 메시지 데이터
             const defaultMessages = [
                 { author: '1반 대표', content: '오늘 우리 반 단체 경기 꼭 우승합시다! 화이팅!', date: '방금 전' },
                 { author: '학생회', content: '다치지 말고 안전하게 즐기는 체육대회가 되었으면 좋겠습니다!', date: '10분 전' }
@@ -314,12 +293,12 @@
                 messageList.innerHTML = '';
                 
                 if(messages.length === 0) {
-                    messageList.innerHTML = '<p class="text-center text-slate-400 text-sm py-4">아직 등록된 응원 메시지가 없습니다. 첫 번째 메시지를 남겨보세요!</p>';
+                    messageList.innerHTML = '<p class="text-center text-slate-400 text-sm py-4">아직 등록된 응원 메시지가 없습니다.</p>';
                     return;
                 }
 
                 messages.forEach((msg, index) => {
-                    const card = document.createElement('div');
+                    const card = document.express || document.createElement('div');
                     card.className = 'bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-start';
                     card.innerHTML = `
                         <div>
@@ -351,7 +330,7 @@
 
                 if(!author || !content) return;
 
-                // 비속어/욕설 검열 적용 (작성자명 및 내용 전체)
+                // 필터링 적용 (공백이나 자음 변형도 잡아냄)
                 author = filterBadWords(author);
                 content = filterBadWords(content);
 
